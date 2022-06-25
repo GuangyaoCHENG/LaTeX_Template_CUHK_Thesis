@@ -1,0 +1,67 @@
+% format page number in preface
+\pagenumbering{roman}
+\pagestyle{plain}
+
+
+% English abstract
+\clearpage
+\phantomsection % set anchor for bookmarks
+\addcontentsline{toc}{section}{Abstract} % add "Abstract" to toc
+\section*{Abstract}
+Abstract of thesis entitled:\\
+Thesis Title\\
+Submitted by Last, Given name\\
+for the degree of Doctor of Philosophy\\
+at The Chinese University of Hong Kong in June 2022\\
+
+Abstract text % put abstract here
+
+
+% Chinese abstract
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{摘要}
+\section*{摘要}
+摘要文字 % put 摘要 here
+
+
+% Acknowledgment
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Acknowledgment}
+\section*{Acknowledgment}
+Acknowledgment text % put acknowledgment here
+
+
+% toc
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{Table of Contents}
+\tableofcontents
+
+
+% lot
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{List of Tables}
+\listoftables
+
+
+% lof
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{List of Figures}
+\listoffigures
+
+
+% list of abbre.
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{List of Abbreviations}
+\section*{List of Abbreviations}
+abb1\tabto{8em}abbreviation1
+
+abb2\tabto{8em}abbreviation2\\
+abb3\tabto{8em}abbreviation3\\
+% the first line should use "double enters" for line break
+% the following could be "\\"

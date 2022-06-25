@@ -1,0 +1,176 @@
+% 11pt font in the main text
+\documentclass[11pt, a4paper]{report}
+
+% set spacing
+% main text: doublespacing
+% float: singlespacing
+\usepackage[nodisplayskipstretch]{setspace}
+\doublespacing
+
+% set margin: binding edge 4cm, outer edge 2.5cm
+% distance between main text and foot: 20pt
+\usepackage[left=4cm, right=2.5cm, top=2.5cm, right=2.5cm, footskip=20pt]{geometry}
+
+% no intendation in entire document
+\setlength{\parindent}{0pt}
+
+% set font
+\usepackage[sc]{mathpazo}
+
+% To include Chinese
+\usepackage[UTF8, scheme=plain]{ctex}
+
+% format titles of toc, lot, and lof
+\usepackage{tocloft}
+\setlength{\cftbeforetoctitleskip}{-12pt} % spacing before toc title
+\setlength{\cftaftertoctitleskip}{10pt} % spacing after toc title
+\renewcommand{\cfttoctitlefont}{\bfseries\Large} % toc title font size
+\renewcommand{\contentsname}{\text{Table of Contents}} % toc name
+\setcounter{tocdepth}{3} % numbering depth to subsubsection in toc
+\setlength{\cftbeforelottitleskip}{-12pt} % lot title
+\setlength{\cftafterlottitleskip}{10pt}
+\renewcommand{\cftlottitlefont}{\bfseries\Large}
+\setlength{\cftbeforeloftitleskip}{-12pt} % lof title
+\setlength{\cftafterloftitleskip}{10pt}
+\renewcommand{\cftloftitlefont}{\bfseries\Large}
+
+% format contents in lot, and lof
+\setlength{\cftfigindent}{0pt} % no indentation in lof
+\setlength{\cftfignumwidth}{1.5em} % set number width in lof
+\setlength{\cfttabindent}{0pt} % lot
+\setlength{\cfttabnumwidth}{1.5em}
+% \renewcommand{\cftfigpresnum}{\textbf{Fig.\ }} % add text before number
+% \renewcommand{\cftfigfont}{\bfseries} % font
+
+% include \tab for list of abbre.
+\usepackage{tabto}
+
+% format titles
+\usepackage{titlesec}
+\titleformat{\chapter}[display]{\huge\bfseries}{Chapter \thechapter}{0.5em}{} % chapter
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.5em}{} % section font
+\titlespacing*{\section}{0pt}{10pt}{10pt} % section spacing
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{0.5em}{} % subsection
+\titlespacing*{\subsection}{0pt}{10pt}{10pt}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{0.5em}{} % subsubsection
+\titlespacing*{\subsubsection}{0pt}{10pt}{10pt}
+\setcounter{secnumdepth}{3} % numbering depth to subsubsection
+\titlespacing*{\paragraph}{0pt}{0pt}{4pt} % paragraph
+
+% format figures
+\usepackage[section]{placeins} % place figures in the section where issued
+\usepackage{graphicx}
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.9}
+\renewcommand{\textfraction}{0.1}
+\usepackage[closeFloats]{fltpage} % separate captions for long figures
+
+% useful packages to format tables
+\usepackage{multirow}
+\usepackage{makecell}
+\usepackage{booktabs}
+
+% format captions
+\usepackage{caption}
+\DeclareCaptionLabelFormat{fig}{\textbf{Fig.\ #2}} % declare figure caption
+\captionsetup{format=plain, labelformat=fig, labelsep=space} % set figure caption to "Fig. xx"
+\DeclareCaptionLabelFormat{table}{\textbf{Table.\ #2}} % declare table caption
+% \captionsetup{format=plain, labelformat=table, labelsep=space} % set table caption to "Table. xx", use this wherever needed
+
+% set landscape page when needed
+\usepackage{pdflscape}
+
+% handle units
+\usepackage{siunitx}
+\sisetup{range-phrase=--}
+\sisetup{detect-all=true}
+% \DeclareSIUnit\U{U} % declare custom units
+
+% handle equations
+\usepackage{amsmath}
+
+% format citation and bibliography
+\usepackage[backend=biber, citestyle=chem-angew, bibstyle=nature, sorting=none, url=false, isbn=false, eprint=false, doi=true]{biblatex}
+\addbibresource{references.bib} % put references in file reference.bib
+
+% format corss-reference
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.5}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+	citecolor=darkblue,
+	filecolor=black,
+	linkcolor=black,
+	urlcolor=darkblue,
+}
+
+\begin{document}
+% title page
+\begin{titlepage}
+	\thispagestyle{empty}
+	\null\vfil
+	\begin{center}
+		\begin{bfseries}
+			\huge{Thesis Title}\\[2em]  % put title here
+			\large{Last, Given name}\\[14em] % put author here
+		\end{bfseries}
+			
+		A Thesis Submitted in Partial Fulfillment\\
+		of the Requirements for the Degree of\\
+		Doctor of Philosophy\\
+		in\\
+		Department name\\[6em]  % put deparment here
+		The Chinese University of Hong Kong\\
+		Month Year % time, e.g. June 2022
+	\end{center}
+	\vfil\null
+\end{titlepage}
+
+
+% committee page
+\clearpage
+\thispagestyle{empty}
+\vspace*{10mm}
+\begin{center}
+	\vfill
+	\underline{Thesis Assessment Committee}
+	\vskip 1cm{
+		\centering
+		Professor xxx (Chair)\\
+		Professor xxx (Thesis Supervisor)\\
+		Professor xxx (Committee Member)\\
+		Professor xxx (External Examiner)
+		}
+	\vfill
+	\par
+	\vskip 1.5em
+\end{center}
+
+
+% preface
+\input{frontmatter}\label{frontmatter}
+
+
+\chapter{Chapter Title 1}\label{chapter1}
+% reset page number to arabic
+\pagenumbering{arabic}
+\input{chapters/chapter1}
+
+
+\chapter{Chapter Title 2}\label{chapter2}
+\input{chapters/chapter2}
+
+
+\chapter{Chapter Title 3}
+\input{chapters/chapter3}\label{chapter3}
+
+
+% bibliography
+\begin{singlespacing}
+	\clearpage
+	\phantomsection
+	\addcontentsline{toc}{chapter}{References}
+	\printbibliography[title=References] % change "Bibliography" to "References"
+\end{singlespacing}
+\end{document}
