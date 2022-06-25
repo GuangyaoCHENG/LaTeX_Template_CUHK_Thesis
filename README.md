@@ -2,7 +2,7 @@
 A LaTeX Template for PhD thesis in The Chinese University of Hong Kong, following [Guide to thesis formatting](https://www.gradsch.cuhk.edu.hk/pgstudent/gsinfo/research/Chapter%206.html).
 
 ## Environment
-TexLive + TeXStudio + PdfLaTeX
+TexLive + TeXStudio + PdfLaTeX + Biber
 
 ## Usage
 ```Thesis.tex```: formatt settings, main entry
