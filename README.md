@@ -5,7 +5,7 @@ A LaTeX Template for PhD thesis in The Chinese University of Hong Kong, followin
 TexLive + TeXStudio + PdfLaTeX
 
 ## Usage
-```thesis.tex```: formatt settings, main entry
+```Thesis.tex```: formatt settings, main entry
 
 
 ```reference.bib```: bibliography database in [BibLaTeX](https://ctan.org/pkg/biblatex?lang=en)
@@ -16,7 +16,7 @@ TexLive + TeXStudio + PdfLaTeX
 
 ```figures```: folder containing figures
 
-```thesis.pdf```: output
+```Thesis.pdf```: output
 
 ## References
 https://www.gradsch.cuhk.edu.hk/pgstudent/gsinfo/research/Chapter%206.html
